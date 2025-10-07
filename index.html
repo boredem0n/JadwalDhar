@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Weekly Schedule</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <style>
+        /* Embers Color Palette */
+        :root {
+            --dark-indigo: #41436A;
+            --muted-magenta: #984063;
+            --bright-coral: #F64668;
+            --pastel-orange: #FE9677;
+            --background-dark: #121212; /* Added black background */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-dark); /* Changed background to black */
+            color: var(--pastel-orange);
+        }
+        .font-mono {
+            font-family: 'Source Code Pro', monospace;
+        }
+        .modal {
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+        .modal.flex {
+            display: flex;
+        }
+        .modal.opacity-100 .modal-content {
+            transform: translateY(0);
+        }
+        .upcoming-class {
+            border: 2px solid var(--bright-coral);
+            box-shadow: 0 0 15px rgba(246, 70, 104, 0.5);
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6">
+
+    <div class="max-w-2xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">Asia Pacific University of Technology & Innovation</h1>
+            <p class="text-lg text-[var(--pastel-orange)] opacity-90 mt-2">Business Management with a Specialism in e-Business</p>
+            <p class="text-md text-[var(--bright-coral)] opacity-80 mt-1 font-mono tracking-widest">APU1F2509BM</p>
+        </header>
+
+        <!-- Schedule List -->
+        <div id="schedule-list" class="space-y-8">
+            <!-- Schedule items will be injected here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Modal for Resources -->
+    <div id="resource-modal" class="modal fixed inset-0 bg-black bg-opacity-75 items-center justify-center p-4 z-50 opacity-0">
+        <div class="modal-content bg-[var(--muted-magenta)] rounded-2xl shadow-2xl w-full max-w-md mx-auto border border-[var(--dark-indigo)]">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h2 id="modal-title" class="text-2xl font-bold text-white">Resources</h2>
+                    <button id="close-modal-btn" class="text-[var(--pastel-orange)] hover:text-white transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="modal-body" class="text-[var(--pastel-orange)]">
+                    <!-- Resource links will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const scheduleData = [
+            // Monday
+            { id: 1, day: 'Monday', date: '2025-10-06', time: '11:00', subject: 'INTRO TO MANAGEMENT', classroom: 'B-06-08', lecturer: 'AHMAD NADZRI BIN ROES', resources: [{ name: 'Presentation Slides', url: '#' }, { name: 'Lecture Notes', url: '#' }] },
+            { id: 2, day: 'Monday', date: '2025-10-06', time: '15:45', subject: 'DIGITAL THINKING AND INNOVATION', classroom: 'ONLMCO3-10 (Online)', lecturer: 'DR. MOHD NIZAM BIN A. BADARUDDIN', resources: [{ name: 'Online Class Link', url: '#' }, { name: 'Reading Material', url: '#' }] },
+            { id: 3, day: 'Monday', date: '2025-10-06', time: '18:45', subject: 'BAHASA MELAYU 2', classroom: 'ONLMCO3-15 (Online)', lecturer: 'MUNIRAH BINTI SALAMAT', resources: [{ name: 'Online Class Link', url: '#' }, { name: 'Module PDF', url: '#' }] },
+            // Tuesday
+            { id: 4, day: 'Tuesday', date: '2025-10-07', time: '08:30', subject: 'BUSINESS AND COMMUNICATION SKILLS', classroom: 'Auditorium 6 @ Block C Level 3', lecturer: 'VANEETHA A/P SAGADEVAN', resources: [{ name: 'Case Study Docs', url: '#' }] },
+            { id: 5, day: 'Tuesday', date: '2025-10-07', time: '11:30', subject: 'PEOPLE MANAGEMENT', classroom: 'D-08-15', lecturer: 'SHAMINI A/P ARUMUGAM', resources: [] },
+            { id: 6, day: 'Tuesday', date: '2025-10-07', time: '13:00', subject: 'INTRO TO MANAGEMENT', classroom: 'Auditorium 2 @ Level 6', lecturer: 'AHMAD NADZRI BIN ROES', resources: [{ name: 'Follow-up Slides', url: '#' }] },
+            { id: 7, day: 'Tuesday', date: '2025-10-07', time: '15:15', subject: 'QUANTITATIVE SKILL', classroom: 'Auditorium 6 @ Block C Level 3', lecturer: 'NG WAN SIEW', resources: [{ name: 'Practice Questions', url: '#' }, { name: 'Formula Sheet', url: '#' }] },
+            // Wednesday
+            { id: 8, day: 'Wednesday', date: '2025-10-08', time: '08:30', subject: 'PEOPLE MANAGEMENT', classroom: 'Auditorium 2 @ Level 6', lecturer: 'SHAMINI A/P ARUMUGAM', resources: [{ name: 'Presentation Slides', url: '#' }] },
+            { id: 9, day: 'Wednesday', date: '2025-10-08', time: '10:45', subject: 'CO CURRICULUM', classroom: 'ONLMCO3-13 (Online)', lecturer: 'NEESHANTI A/P RHAMAROO', resources: [{ name: 'Online Class Link', url: '#' }, { name: 'Project Details', url: '#' }] },
+            { id: 10, day: 'Wednesday', date: '2025-10-08', time: '15:45', subject: 'PENGHAYATAN ETIKA DAN PERADABAN', classroom: 'ONLMCO3-11 (Online)', lecturer: 'MUNIRAH BINTI SALAMAT', resources: [{ name: 'Online Class Link', url: '#' }] },
+            // Thursday
+            { id: 11, day: 'Thursday', date: '2025-10-09', time: '09:30', subject: 'BUSINESS AND COMMUNICATION SKILLS', classroom: 'B-07-08', lecturer: 'ZALIHA BINTI IDRIS', resources: [{ name: 'Workshop Materials', url: '#' }] },
+            { id: 12, day: 'Thursday', date: '2025-10-09', time: '10:45', subject: 'QUANTITATIVE SKILL', classroom: 'E-07-05', lecturer: 'LOW KOK SUN', resources: [{ name: 'Additional Exercises', url: '#' }] },
+            { id: 13, day: 'Thursday', date: '2025-10-09', time: '13:30', subject: 'DIGITAL THINKING AND INNOVATION', classroom: 'B-08-05', lecturer: 'FIZREEN FARRA BINTI MUKHRIZAL', resources: [{ name: 'Group Assignment Brief', url: '#' }] },
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const scheduleList = document.getElementById('schedule-list');
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+            
+            const now = new Date();
+            let upcomingClassFound = false;
+
+            days.forEach(day => {
+                const classesForDay = scheduleData.filter(c => c.day === day);
+                
+                if (classesForDay.length > 0) {
+                    const dayHeader = document.createElement('h2');
+                    dayHeader.className = 'text-2xl font-bold text-[var(--bright-coral)] border-b-2 border-[var(--muted-magenta)] pb-2';
+                    dayHeader.textContent = day;
+                    scheduleList.appendChild(dayHeader);
+
+                    const dayContainer = document.createElement('div');
+                    dayContainer.className = 'grid grid-cols-1 gap-4';
+                    
+                    classesForDay.forEach(cls => {
+                        const classTime = new Date(`${cls.date}T${cls.time}:00`);
+                        
+                        const classCard = document.createElement('div');
+                        classCard.className = 'bg-[var(--muted-magenta)] p-4 rounded-lg border border-transparent hover:border-[var(--pastel-orange)] transition-all duration-300 flex justify-between items-center';
+
+                        if (!upcomingClassFound && classTime > now) {
+                            classCard.classList.add('upcoming-class');
+                            upcomingClassFound = true;
+                        }
+
+                        classCard.innerHTML = `
+                            <div class="flex-grow flex items-center gap-4">
+                                <div class="w-20 text-center flex-shrink-0">
+                                    <p class="text-xl font-bold text-white">${cls.time}</p>
+                                </div>
+                                <div class="border-l-2 border-[var(--dark-indigo)] pl-4 flex-grow">
+                                    <h3 class="font-bold text-lg text-white">${cls.subject}</h3>
+                                    <div class="text-sm mt-1 space-y-1 text-[var(--pastel-orange)] opacity-90">
+                                        <p><strong>Lokasi:</strong> ${cls.classroom}</p>
+                                        <p><strong>Dosen:</strong> ${cls.lecturer}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button data-id="${cls.id}" aria-label="View Resources" class="view-resources-btn text-3xl p-3 hover:scale-110 transition-transform">
+                                🔗
+                            </button>
+                        `;
+                        dayContainer.appendChild(classCard);
+                    });
+                    scheduleList.appendChild(dayContainer);
+                }
+            });
+
+            // Modal handling
+            const modal = document.getElementById('resource-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+
+            document.querySelectorAll('.view-resources-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const classId = parseInt(button.getAttribute('data-id'));
+                    const classData = scheduleData.find(c => c.id === classId);
+
+                    modalTitle.textContent = `${classData.subject} - Resources`;
+                    
+                    if (classData.resources && classData.resources.length > 0) {
+                        modalBody.innerHTML = classData.resources.map(res => 
+                            `<a href="${res.url}" target="_blank" rel="noopener noreferrer" class="block bg-[var(--dark-indigo)] hover:bg-opacity-80 p-3 rounded-lg mb-3 transition-colors">
+                                ${res.name}
+                            </a>`
+                        ).join('');
+                    } else {
+                        modalBody.innerHTML = '<p>No resources available for this class.</p>';
+                    }
+
+                    modal.classList.add('flex');
+                    setTimeout(() => modal.classList.add('opacity-100'), 10);
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.remove('opacity-100');
+                setTimeout(() => modal.classList.remove('flex'), 300);
+            };
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
