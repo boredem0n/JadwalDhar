@@ -82,22 +82,22 @@
     <script>
         const scheduleData = [
             // Monday
-            { id: 1, day: 'Monday', date: '2025-10-06', time: '11:00', subject: 'INTRO TO MANAGEMENT', classroom: 'B-06-08', lecturer: 'AHMAD NADZRI BIN ROES', resources: [{ name: 'Presentation Slides', url: '#' }, { name: 'Lecture Notes', url: '#' }] },
-            { id: 2, day: 'Monday', date: '2025-10-06', time: '15:45', subject: 'DIGITAL THINKING AND INNOVATION', classroom: 'ONLMCO3-10 (Online)', lecturer: 'DR. MOHD NIZAM BIN A. BADARUDDIN', resources: [{ name: 'Online Class Link', url: '#' }, { name: 'Reading Material', url: '#' }] },
-            { id: 3, day: 'Monday', date: '2025-10-06', time: '18:45', subject: 'BAHASA MELAYU 2', classroom: 'ONLMCO3-15 (Online)', lecturer: 'MUNIRAH BINTI SALAMAT', resources: [{ name: 'Online Class Link', url: '#' }, { name: 'Module PDF', url: '#' }] },
+            { id: 1, day: 'Monday', date: '2025-10-06', time: '11:00', subject: 'INTRO TO MANAGEMENT', classroom: 'B-06-08', lecturer: 'AHMAD NADZRI BIN ROES', resources: [{ name: 'Lihat Materi (Folder)', url: 'https://drive.google.com/drive/folders/1rKZCF5n2JdO8cigWAXs-05SJmSZb516q?usp=drive_link' }] },
+            { id: 2, day: 'Monday', date: '2025-10-06', time: '15:45', subject: 'DIGITAL THINKING AND INNOVATION', classroom: 'ONLMCO3-10 (Online)', lecturer: 'DR. MOHD NIZAM BIN A. BADARUDDIN', resources: [{ name: 'Lihat Materi (Folder)', url: 'https://drive.google.com/drive/folders/16n1PMruRo7jlddAHXdTrLF14B4aRdWdJ?usp=drive_link' }, { name: 'Materi Studocu', url: 'https://www.studocu.com/id/course/asia-pacific-university-of-technology-and-innovation/digital-thinking-and-innovation/5834892' }] },
+            { id: 3, day: 'Monday', date: '2025-10-06', time: '18:45', subject: 'BAHASA MELAYU 2', classroom: 'ONLMCO3-15 (Online)', lecturer: 'MUNIRAH BINTI SALAMAT', resources: [{ name: 'Materi Studocu', url: 'https://www.studocu.com/id/course/asia-pacific-university-of-technology-and-innovation/bahasa-melayu-komunikasi/7376425' }] },
             // Tuesday
-            { id: 4, day: 'Tuesday', date: '2025-10-07', time: '08:30', subject: 'BUSINESS AND COMMUNICATION SKILLS', classroom: 'Auditorium 6 @ Block C Level 3', lecturer: 'VANEETHA A/P SAGADEVAN', resources: [{ name: 'Case Study Docs', url: '#' }] },
-            { id: 5, day: 'Tuesday', date: '2025-10-07', time: '11:30', subject: 'PEOPLE MANAGEMENT', classroom: 'D-08-15', lecturer: 'SHAMINI A/P ARUMUGAM', resources: [] },
-            { id: 6, day: 'Tuesday', date: '2025-10-07', time: '13:00', subject: 'INTRO TO MANAGEMENT', classroom: 'Auditorium 2 @ Level 6', lecturer: 'AHMAD NADZRI BIN ROES', resources: [{ name: 'Follow-up Slides', url: '#' }] },
-            { id: 7, day: 'Tuesday', date: '2025-10-07', time: '15:15', subject: 'QUANTITATIVE SKILL', classroom: 'Auditorium 6 @ Block C Level 3', lecturer: 'NG WAN SIEW', resources: [{ name: 'Practice Questions', url: '#' }, { name: 'Formula Sheet', url: '#' }] },
+            { id: 4, day: 'Tuesday', date: '2025-10-07', time: '08:30', subject: 'BUSINESS AND COMMUNICATION SKILLS', classroom: 'Auditorium 6 @ Block C Level 3', lecturer: 'VANEETHA A/P SAGADEVAN', resources: [] },
+            { id: 5, day: 'Tuesday', date: '2025-10-07', time: '11:30', subject: 'PEOPLE MANAGEMENT', classroom: 'D-08-15', lecturer: 'SHAMINI A/P ARUMUGAM', resources: [{ name: 'Lihat Materi (Folder)', url: 'https://drive.google.com/drive/folders/1sJouE9lfb4YoseUxqp_VvBMOjYRL_qMg?usp=drive_link' }] },
+            { id: 6, day: 'Tuesday', date: '2025-10-07', time: '13:00', subject: 'INTRO TO MANAGEMENT', classroom: 'Auditorium 2 @ Level 6', lecturer: 'AHMAD NADZRI BIN ROES', resources: [{ name: 'Lihat Materi (Folder)', url: 'https://drive.google.com/drive/folders/1rKZCF5n2JdO8cigWAXs-05SJmSZb516q?usp=drive_link' }] },
+            { id: 7, day: 'Tuesday', date: '2025-10-07', time: '15:15', subject: 'QUANTITATIVE SKILL', classroom: 'Auditorium 6 @ Block C Level 3', lecturer: 'NG WAN SIEW', resources: [{ name: 'Lihat Materi (Folder)', url: 'https://drive.google.com/drive/folders/1nY2ZUD2LxxDO781EGmi7O8cp1DDS6acL?usp=drive_link' }, { name: 'Materi Studocu', url: 'https://www.studocu.com/id/course/asia-pacific-university-of-technology-and-innovation/quantitative-skills/6329042' }] },
             // Wednesday
-            { id: 8, day: 'Wednesday', date: '2025-10-08', time: '08:30', subject: 'PEOPLE MANAGEMENT', classroom: 'Auditorium 2 @ Level 6', lecturer: 'SHAMINI A/P ARUMUGAM', resources: [{ name: 'Presentation Slides', url: '#' }] },
-            { id: 9, day: 'Wednesday', date: '2025-10-08', time: '10:45', subject: 'CO CURRICULUM', classroom: 'ONLMCO3-13 (Online)', lecturer: 'NEESHANTI A/P RHAMAROO', resources: [{ name: 'Online Class Link', url: '#' }, { name: 'Project Details', url: '#' }] },
-            { id: 10, day: 'Wednesday', date: '2025-10-08', time: '15:45', subject: 'PENGHAYATAN ETIKA DAN PERADABAN', classroom: 'ONLMCO3-11 (Online)', lecturer: 'MUNIRAH BINTI SALAMAT', resources: [{ name: 'Online Class Link', url: '#' }] },
+            { id: 8, day: 'Wednesday', date: '2025-10-08', time: '08:30', subject: 'PEOPLE MANAGEMENT', classroom: 'Auditorium 2 @ Level 6', lecturer: 'SHAMINI A/P ARUMUGAM', resources: [{ name: 'Lihat Materi (Folder)', url: 'https://drive.google.com/drive/folders/1sJouE9lfb4YoseUxqp_VvBMOjYRL_qMg?usp=drive_link' }] },
+            { id: 9, day: 'Wednesday', date: '2025-10-08', time: '10:45', subject: 'CO CURRICULUM', classroom: 'ONLMCO3-13 (Online)', lecturer: 'NEESHANTI A/P RHAMAROO', resources: [] },
+            { id: 10, day: 'Wednesday', date: '2025-10-08', time: '15:45', subject: 'PENGHAYATAN ETIKA DAN PERADABAN', classroom: 'ONLMCO3-11 (Online)', lecturer: 'MUNIRAH BINTI SALAMAT', resources: [] },
             // Thursday
-            { id: 11, day: 'Thursday', date: '2025-10-09', time: '09:30', subject: 'BUSINESS AND COMMUNICATION SKILLS', classroom: 'B-07-08', lecturer: 'ZALIHA BINTI IDRIS', resources: [{ name: 'Workshop Materials', url: '#' }] },
-            { id: 12, day: 'Thursday', date: '2025-10-09', time: '10:45', subject: 'QUANTITATIVE SKILL', classroom: 'E-07-05', lecturer: 'LOW KOK SUN', resources: [{ name: 'Additional Exercises', url: '#' }] },
-            { id: 13, day: 'Thursday', date: '2025-10-09', time: '13:30', subject: 'DIGITAL THINKING AND INNOVATION', classroom: 'B-08-05', lecturer: 'FIZREEN FARRA BINTI MUKHRIZAL', resources: [{ name: 'Group Assignment Brief', url: '#' }] },
+            { id: 11, day: 'Thursday', date: '2025-10-09', time: '09:30', subject: 'BUSINESS AND COMMUNICATION SKILLS', classroom: 'B-07-08', lecturer: 'ZALIHA BINTI IDRIS', resources: [] },
+            { id: 12, day: 'Thursday', date: '2025-10-09', time: '10:45', subject: 'QUANTITATIVE SKILL', classroom: 'E-07-05', lecturer: 'LOW KOK SUN', resources: [{ name: 'Lihat Materi (Folder)', url: 'https://drive.google.com/drive/folders/1nY2ZUD2LxxDO781EGmi7O8cp1DDS6acL?usp=drive_link' }, { name: 'Materi Studocu', url: 'https://www.studocu.com/id/course/asia-pacific-university-of-technology-and-innovation/quantitative-skills/6329042' }] },
+            { id: 13, day: 'Thursday', date: '2025-10-09', time: '13:30', subject: 'DIGITAL THINKING AND INNOVATION', classroom: 'B-08-05', lecturer: 'FIZREEN FARRA BINTI MUKHRIZAL', resources: [{ name: 'Lihat Materi (Folder)', url: 'https://drive.google.com/drive/folders/16n1PMruRo7jlddAHXdTrLF14B4aRdWdJ?usp=drive_link' }, { name: 'Materi Studocu', url: 'https://www.studocu.com/id/course/asia-pacific-university-of-technology-and-innovation/digital-thinking-and-innovation/5834892' }] },
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -130,6 +130,19 @@
                             upcomingClassFound = true;
                         }
 
+                        let buttonHtml = '';
+                        if (cls.resources && cls.resources.length > 0) {
+                            buttonHtml = `
+                                <button data-id="${cls.id}" aria-label="View Resources" class="view-resources-btn text-3xl p-3 hover:scale-110 transition-transform">
+                                    🔗
+                                </button>
+                            `;
+                        } else {
+                            // Add a placeholder for alignment if there's no button
+                            buttonHtml = `<div class="w-14 h-14"></div>`;
+                        }
+
+
                         classCard.innerHTML = `
                             <div class="flex-grow flex items-center gap-4">
                                 <div class="w-20 text-center flex-shrink-0">
@@ -143,9 +156,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button data-id="${cls.id}" aria-label="View Resources" class="view-resources-btn text-3xl p-3 hover:scale-110 transition-transform">
-                                🔗
-                            </button>
+                            ${buttonHtml}
                         `;
                         dayContainer.appendChild(classCard);
                     });
@@ -196,3 +207,4 @@
     </script>
 </body>
 </html>
+
